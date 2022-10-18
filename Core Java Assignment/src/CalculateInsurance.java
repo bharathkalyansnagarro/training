@@ -16,7 +16,16 @@ public class CalculateInsurance {
             try {
                 CarDetails carDetails = getUserInput();
                 double calculatedInsurance = calculateInsurance(carDetails);
-                System.out.println("Insurance to be paid :: " + calculatedInsurance);
+
+                System.out.println("------ CAR DETAILS ------");
+                System.out.println("Car Model : " + carDetails.getCarModel());
+                System.out.println("Car Cost Price : " + carDetails.getCarCost());
+                System.out.println("Car Type : " + carDetails.getCarType());
+                System.out.println("Insurance Type : " + carDetails.getInsuranceType());
+                System.out.println("-------------------------");
+                System.out.println("Insurance to paid :: '" + calculatedInsurance + "'");
+                System.out.println("-------------------------");
+
                 System.out.println("Do you want to enter details of any other car (y/n):");
                 char reply = scanner.next().charAt(0);
                 if (reply != 'y') enterLoop = false;
