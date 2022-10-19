@@ -84,7 +84,7 @@ public class CalculateInsurance {
     }
 
     private double calculateInsurance(CarDetails carDetails) {
-        double insuranceCost = 0L;
+        double insuranceCost = 0;
         double carCost = carDetails.getCarCost();
         CarType carType = carDetails.getCarType();
 
@@ -100,7 +100,8 @@ public class CalculateInsurance {
                 break;
         }
 
-        if (carDetails.getInsuranceType() == InsuranceType.PREMIUM) insuranceCost += (insuranceCost * 0.2);
+        if (carDetails.getInsuranceType() == InsuranceType.PREMIUM)
+            insuranceCost += (insuranceCost * Constants.PREMIUM_INSURANCE);
 
         return insuranceCost;
     }

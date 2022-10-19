@@ -8,4 +8,6 @@ public class Constants {
 
     public static final double SUV_INSURANCE_PREMIUM = 0.1;
 
+    public static final double PREMIUM_INSURANCE = 0.2;
+
 }
