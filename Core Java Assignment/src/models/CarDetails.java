@@ -5,7 +5,7 @@ import enums.InsuranceType;
 
 public class CarDetails {
 
-    private double carCost;
+    private final double carCost;
     private final String carModel;
     private final CarType carType;
     private InsuranceType insuranceType;
@@ -15,10 +15,6 @@ public class CarDetails {
         this.carModel = carModel;
         this.carType = carType;
         this.insuranceType = insuranceType;
-    }
-
-    public void setCarCost(double carCost) {
-        this.carCost = carCost;
     }
 
     public double getCarCost() {
