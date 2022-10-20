@@ -13,10 +13,14 @@ public class SortingAlgorithms {
     public void bubbleSort(int[] array) {
         int n = array.length;
         for (int i = 0; i < n - 1; i++) {
+            boolean flag = false;
             for (int j = 0; j < n - i - 1; j++) {
-                if (array[j] > array[j + 1])
+                if (array[j] > array[j + 1]) {
                     swap(array, i, j);
+                    flag = true;
+                }
             }
+            if (!flag) return;
         }
     }
 
