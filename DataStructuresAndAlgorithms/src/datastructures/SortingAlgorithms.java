@@ -112,4 +112,51 @@ public class SortingAlgorithms {
         return topIndex;
     }
 
+    public static void mergeSort(int[] array) {
+        int low = 0, high = array.length;
+        mergeSort(array, low, high - 1);
+    }
+
+    private static void mergeSort(int[] array, int low, int high) {
+        if (low < high) {
+            int middle = (low + high) / 2;
+            mergeSort(array, low, middle);
+            mergeSort(array, middle + 1, high);
+            mergeArray(array, low, middle, high);
+        }
+    }
+
+    private static void mergeArray(int[] array, int low, int middle, int high) {
+        int m = middle - low + 1, n = high - middle;
+        int[] L = new int[m];
+        int[] R = new int[n];
+
+        for (int i = 0; i < m; i++)
+            L[i] = array[low + i];
+
+        for (int i = 0; i < n; i++)
+            R[i] = array[middle + i + 1];
+
+        int i = 0, j = 0, k = low;
+        while (i < m && j < n) {
+            if (L[i] < R[j]) {
+                array[k] = L[i];
+                i++;
+            } else {
+                array[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < m) {
+            array[k++] = L[i++];
+        }
+        while (j < n) {
+            array[k++] = R[j++];
+        }
+
+
+    }
+
 }
