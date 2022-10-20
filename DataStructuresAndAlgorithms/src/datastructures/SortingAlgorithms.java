@@ -77,4 +77,39 @@ public class SortingAlgorithms {
     }
 
 
+    /*
+     *
+     * ALGORITHM : QUICK SORT
+     * TIME COMPLEXITY : O(N^2) [O(N^2) rarely occurs!!]
+     * SPACE COMPLEXITY : O(1)
+     *
+     * */
+    public static void quickSort(int[] array) {
+        int low = 0, high = array.length - 1;
+        quickSort(array, low, high);
+    }
+
+    private static void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int partitionPoint = getPivot(array, low, high);
+            quickSort(array, low, partitionPoint - 1);
+            quickSort(array, partitionPoint + 1, high);
+        }
+    }
+
+    private static int getPivot(int[] array, int low, int high) {
+        int pivot = array[high], topIndex = low - 1;
+
+        for (int i = low; i <= high - 1; i++) {
+            if (array[i] < pivot) {
+                topIndex++;
+                swap(array, i, topIndex);
+            }
+        }
+        topIndex++;
+        swap(array, topIndex, high);
+
+        return topIndex;
+    }
+
 }
