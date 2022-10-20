@@ -1,4 +1,4 @@
-import constants.Constants;
+import constants.InsuranceConstants;
 import enums.CarType;
 import enums.InsuranceType;
 import models.CarDetails;
@@ -90,18 +90,18 @@ public class CalculateInsurance {
 
         switch (carType) {
             case HATCH_BACK:
-                insuranceCost = carCost * Constants.HATCH_BACK_INSURANCE_PREMIUM;
+                insuranceCost = carCost * InsuranceConstants.HATCH_BACK_INSURANCE_PREMIUM;
                 break;
             case SEDAN:
-                insuranceCost = carCost * Constants.SEDAN_INSURANCE_PREMIUM;
+                insuranceCost = carCost * InsuranceConstants.SEDAN_INSURANCE_PREMIUM;
                 break;
             case SUV:
-                insuranceCost = carCost * Constants.SUV_INSURANCE_PREMIUM;
+                insuranceCost = carCost * InsuranceConstants.SUV_INSURANCE_PREMIUM;
                 break;
         }
 
         if (carDetails.getInsuranceType() == InsuranceType.PREMIUM)
-            insuranceCost += (insuranceCost * Constants.PREMIUM_INSURANCE);
+            insuranceCost += (insuranceCost * InsuranceConstants.PREMIUM_INSURANCE);
 
         return insuranceCost;
     }

@@ -1,6 +1,6 @@
 package constants;
 
-public class Constants {
+public class InsuranceConstants {
 
     public static final double HATCH_BACK_INSURANCE_PREMIUM = 0.05;
 
