@@ -20,13 +20,13 @@ public class SortingAlgorithms {
         }
     }
 
-    private void swap(int[] array, int i, int j) {
+    private static void swap(int[] array, int i, int j) {
         int temporary = array[i];
         array[i] = array[j];
         array[j] = temporary;
     }
 
-    public void printArray(int[] array) {
+    public static void printArray(int[] array) {
         for (int element : array) {
             System.out.print(element + " ");
         }
@@ -39,7 +39,7 @@ public class SortingAlgorithms {
      * SPACE COMPLEXITY : O(1)
      *
      * */
-    public void selectionSort(int[] array) {
+    public static void selectionSort(int[] array) {
         int n = array.length;
         for (int i = 0; i < n; i++) {
             int minIndex = i;
@@ -50,6 +50,25 @@ public class SortingAlgorithms {
                 }
             }
             swap(array, i, minIndex);
+        }
+    }
+
+    /*
+     *
+     * ALGORITHM : INSERTION SORT
+     * TIME COMPLEXITY : O(N^2)
+     * SPACE COMPLEXITY : O(1)
+     *
+     * */
+    public static void insertionSort(int[] array) {
+        int n = array.length;
+        for (int i = 1; i < n; i++) {
+            int key = array[i], j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
         }
     }
 
