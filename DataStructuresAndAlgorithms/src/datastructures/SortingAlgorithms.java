@@ -11,6 +11,7 @@ public class SortingAlgorithms {
      *
      * */
     public void bubbleSort(int[] array) {
+        if (array == null || array.length == 0) return;
         int n = array.length;
         for (int i = 0; i < n - 1; i++) {
             boolean flag = false;
@@ -25,6 +26,7 @@ public class SortingAlgorithms {
     }
 
     private static void swap(int[] array, int i, int j) {
+        if (array == null || array.length == 0) return;
         int temporary = array[i];
         array[i] = array[j];
         array[j] = temporary;
@@ -34,6 +36,7 @@ public class SortingAlgorithms {
         for (int element : array) {
             System.out.print(element + " ");
         }
+        System.out.println();
     }
 
     /*
@@ -44,6 +47,7 @@ public class SortingAlgorithms {
      *
      * */
     public static void selectionSort(int[] array) {
+        if (array == null || array.length == 0) return;
         int n = array.length;
         for (int i = 0; i < n; i++) {
             int minIndex = i;
@@ -65,6 +69,7 @@ public class SortingAlgorithms {
      *
      * */
     public static void insertionSort(int[] array) {
+        if (array == null || array.length == 0) return;
         int n = array.length;
         for (int i = 1; i < n; i++) {
             int key = array[i], j = i - 1;
@@ -85,6 +90,7 @@ public class SortingAlgorithms {
      *
      * */
     public static void quickSort(int[] array) {
+        if (array == null || array.length == 0) return;
         int low = 0, high = array.length - 1;
         quickSort(array, low, high);
     }
@@ -113,6 +119,7 @@ public class SortingAlgorithms {
     }
 
     public static void mergeSort(int[] array) {
+        if (array == null || array.length == 0) return;
         int low = 0, high = array.length;
         mergeSort(array, low, high - 1);
     }
@@ -156,7 +163,49 @@ public class SortingAlgorithms {
             array[k++] = R[j++];
         }
 
+    }
+
+    /*
+     *
+     * ALGORITHM : HEAP SORT (MAX HEAP)
+     * TIME COMPLEXITY : O(N^Log(N))
+     * SPACE COMPLEXITY : O(1)
+     *
+     * */
+
+
+    public static void heapSort(int[] array) {
+        if (array == null || array.length == 0) return;
+        heapSort(array, array.length);
+    }
+
+    private static void heapSort(int[] array, int length) {
+        for (int index = length / 2 - 1; index >= 0; index--)
+            heapifyArray(array, length, index);
+
+        for (int index = length - 1; index >= 0; index--) {
+            swap(array, 0, index);
+            heapifyArray(array, index, 0);
+        }
 
     }
+
+    private static void heapifyArray(int[] array, int length, int index) {
+        int largestValueIndex = index;
+        int leftChildIndex = 2 * index + 1;
+        int rightChildIndex = 2 * index + 2;
+
+        if (leftChildIndex < length && array[leftChildIndex] > array[largestValueIndex])
+            largestValueIndex = leftChildIndex;
+
+        if (rightChildIndex < length && array[rightChildIndex] > array[largestValueIndex])
+            largestValueIndex = rightChildIndex;
+
+        if (index != largestValueIndex) {
+            swap(array, largestValueIndex, index);
+            heapifyArray(array, length, largestValueIndex);
+        }
+    }
+
 
 }
