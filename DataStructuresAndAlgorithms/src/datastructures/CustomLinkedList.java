@@ -14,10 +14,11 @@ import java.util.Iterator;
 • Iterator !
 • Traverse/Print !
 * */
-public class CustomLinkedList<T> implements Iterable<T> {
+public class CustomLinkedList<T extends Number> implements Iterable<T> {
 
     private int size = 0;
-    private CustomNode<T> head, tail;
+    private CustomNode<T> head;
+    private CustomNode<T> tail;
 
     public CustomLinkedList() {
         this.head = null;
@@ -30,7 +31,6 @@ public class CustomLinkedList<T> implements Iterable<T> {
         if (tail == null) {
             head = tail = node;
         }
-        tail.next = node;
         tail = tail.next;
         size++;
     }
@@ -64,24 +64,32 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
     }
 
-    public void delete() {
-        if (head == null) return;
+    public T delete() {
+        if (head == null) return null;
+        CustomNode<T> temp = head;
         head = head.next;
         size--;
+        return temp.getValue();
+
     }
 
-    public void delete(int position) {
-        if (head == null || position < 0) return;
+    public T delete(int position) {
+        if (head == null || position < 0) return null;
         if (position == 0) {
+            CustomNode<T> temp = head;
             head = head.next;
-            return;
+            size--;
+            return temp.getValue();
         }
         CustomNode<T> temp = this.head;
 
         for (int i = 0; i < position - 1; i++) {
             temp = temp.next;
         }
+        CustomNode<T> result = temp.next;
         temp.next = temp.next.next;
+        size--;
+        return result.getValue();
     }
 
     public CustomNode<T> getCenterNode() {
@@ -95,18 +103,18 @@ public class CustomLinkedList<T> implements Iterable<T> {
         return slow;
     }
 
-    public CustomNode<T> reverseList(CustomNode<T> head) {
-        return reverseList(head, null);
+    public CustomNode<T> reverse() {
+        return reverse(this.head, null);
     }
 
-    private CustomNode<T> reverseList(CustomNode<T> head, CustomNode<T> prev) {
+    private CustomNode<T> reverse(CustomNode<T> head, CustomNode<T> prev) {
         if (head == null) return prev;
         CustomNode<T> next = head.next;
         head.next = prev;
-        return reverseList(next, head);
+        return reverse(next, head);
     }
 
-    public void printList() {
+    public void print() {
         CustomNode<T> temp = this.head;
         while (temp != null) {
             System.out.print(temp.getValue() + " -> ");
@@ -117,6 +125,10 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
     public int getSize() {
         return this.size;
+    }
+
+    public CustomNode<T> getHead() {
+        return this.head;
     }
 
     @Override
@@ -139,4 +151,52 @@ public class CustomLinkedList<T> implements Iterable<T> {
             }
         };
     }
+
+    public void sort() {
+        head = mergeSort(head);
+    }
+
+    private CustomNode<T> mergeSort(CustomNode<T> head) {
+        if (head == null || head.next == null) return head;
+
+        CustomNode<T> middleNode = getMiddleNode(head);
+        CustomNode<T> nextOfMiddleNode = middleNode.next;
+        middleNode.next = null;
+
+        CustomNode<T> leftPart = mergeSort(head);
+        CustomNode<T> rightPart = mergeSort(nextOfMiddleNode);
+        return mergeTwoSortedLists(leftPart, rightPart);
+    }
+
+    //TODO :
+    private CustomNode<T> mergeTwoSortedLists(CustomNode<T> leftPart, CustomNode<T> rightPart) {
+        if (leftPart == null) return rightPart;
+        else if (rightPart == null) return leftPart;
+        CustomNode<T> temp = null;
+
+        if (leftPart.getValue().intValue() <= rightPart.getValue().intValue()) {
+            temp = leftPart;
+            temp.next = mergeTwoSortedLists(leftPart.next, rightPart);
+        } else {
+            temp = rightPart;
+            temp.next = mergeTwoSortedLists(leftPart, rightPart.next);
+
+        }
+
+        return temp;
+    }
+
+    private CustomNode<T> getMiddleNode(CustomNode<T> head) {
+        if (this.head == null) return null;
+        CustomNode<T> slow = head;
+        CustomNode<T> fast = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+
 }
