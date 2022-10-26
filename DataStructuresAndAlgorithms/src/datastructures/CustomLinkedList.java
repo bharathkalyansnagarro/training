@@ -119,33 +119,24 @@ public class CustomLinkedList<T> implements Iterable<T> {
         return this.size;
     }
 
-    public CustomNode<T> getHead() {
-        return this.head;
-    }
-
     @Override
     public Iterator<T> iterator() {
-        return (Iterator<T>) new CustomLinkedListIterator<T>(this);
-    }
-}
 
-class CustomLinkedListIterator<T> implements Iterator<CustomNode<T>> {
+        return new Iterator<T>() {
 
-    CustomNode<T> current;
+            CustomNode<T> current = head;
 
-    public CustomLinkedListIterator(CustomLinkedList<T> list) {
-        current = list.getHead();
-    }
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
 
-    @Override
-    public boolean hasNext() {
-        return current != null;
-    }
-
-    @Override
-    public CustomNode<T> next() {
-        T temp = current.getValue();
-        current = current.next;
-        return (CustomNode<T>) temp;
+            @Override
+            public T next() {
+                T temp = current.getValue();
+                current = current.next;
+                return (T) temp;
+            }
+        };
     }
 }
