@@ -1,9 +1,11 @@
 package datastructures;
 
 
-public class CustomNode<T> {
+import java.util.Comparator;
+
+public class CustomNode<T> implements Comparable<T> {
     private T value;
-    CustomNode next;
+    CustomNode<T> next;
 
     CustomNode() {
     }
@@ -21,5 +23,8 @@ public class CustomNode<T> {
         return value;
     }
 
-
+    @Override
+    public int compareTo(T o) {
+        return 0;
+    }
 }

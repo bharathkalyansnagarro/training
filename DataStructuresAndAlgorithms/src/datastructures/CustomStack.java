@@ -14,127 +14,108 @@ import java.util.*;
 • Iterator !
 • Traverse/Print !
 *  */
-public class CustomStack implements Iterable<Integer> {
+public class CustomStack<T extends Number> implements Iterable<T> {
 
     private int size;
     private final int capacity;
-    private final List<Integer> stack;
+
+    private final CustomLinkedList<T> stack;
 
     public CustomStack() {
         this.size = 0;
         this.capacity = 10;
-        this.stack = new LinkedList<>();
+        this.stack = new CustomLinkedList<>();
+
     }
 
     public CustomStack(int capacity) {
         this.size = 0;
         this.capacity = capacity;
-        this.stack = new LinkedList<>();
+        this.stack = new CustomLinkedList<>();
+
     }
 
 
-    public void push(int value) {
+    public void push(T value) {
         if (size == capacity) throw new StackOverflowError();
-        stack.add(0, value);
+        stack.add(0,value);
         size++;
     }
 
-    public int pop() {
+    public T pop() {
         if (size == 0) throw new EmptyStackException();
         size--;
-        return stack.remove(0);
+        return stack.delete(0);
     }
 
     public boolean isEmpty() {
         return size == 0;
     }
 
-    public int peek() {
+    public T peek() {
         if (isEmpty()) throw new EmptyStackException();
-        else return stack.get(0);
+        else return stack.getHead().getValue();
     }
 
     public int getSize() {
         return this.size;
     }
 
-    public int getCenter() {
-        if (size == 0) return -1;
-        Stack<Integer> s = new Stack<>();
-        for (int i = 0; i < size / 2; i++)
-            s.push(stack.remove(0));
-        int result = stack.get(0);
-
-        while (!s.isEmpty())
-            stack.add(0, s.pop());
-
-        return result;
+    public T getCenter() {
+        if (size == 0) return null;
+        return stack.getCenterNode().getValue();
     }
 
     public void reverseStack() {
-        if (this.stack.size() == 0) return;
-        int poppedElement = this.stack.remove(0);
-        reverseStack();
-        stack.add(poppedElement);
+        if (this.size == 0) return;
+        stack.reverse();
     }
 
 
-    public boolean contains(int element) {
-        for (int i = 0; i < size; i++)
-            if (stack.get(i) == element)
-                return true;
-
+    public boolean contains(T element) {
+        CustomNode<T> temp = stack.getHead();
+        while (temp != null) {
+            if (temp.getValue() == element) return true;
+            temp = temp.next;
+        }
         return false;
     }
 
-    public void sortStack() {
-        if (this.stack.size() > 0) {
-            int poppedElement = this.stack.remove(0);
-            sortStack();
-            sortInserted(this.stack, poppedElement);
-        }
+    public void sort() {
+        stack.sort();
     }
 
-    private void sortInserted(List<Integer> stack, int poppedElement) {
-        if (stack.size() == 0 || stack.get(0) < poppedElement) {
-            stack.add(0, poppedElement);
-            return;
-        }
-
-        int element = stack.remove(0);
-        sortInserted(stack, poppedElement);
-        stack.add(0, element);
-    }
 
     public void print() {
-        for (int i = 0; i < size; i++) {
-            System.out.println(stack.get(i));
+        CustomNode<T> temp = this.stack.getHead();
+        while (temp != null) {
+            System.out.println(temp.getValue());
+            temp = temp.next;
         }
+        System.out.println();
     }
 
 
     @Override
-    public Iterator<Integer> iterator() {
-        return new Iterator<>() {
-            int currentIndex = 0;
+    public Iterator<T> iterator() {
+
+        return new Iterator<T>() {
+            CustomNode<T> head = stack.getHead();
 
             @Override
             public boolean hasNext() {
-                return currentIndex < size && stack.get(currentIndex) != null;
+                return head != null;
             }
 
             @Override
-            public Integer next() {
-                return stack.get(currentIndex++);
+            public T next() {
+                T value = head.getValue();
+                head = head.next;
+                return value;
             }
-
-
         };
     }
 }
-
-
-
 
 
 
