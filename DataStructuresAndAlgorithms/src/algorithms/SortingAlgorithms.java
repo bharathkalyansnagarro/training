@@ -1,4 +1,4 @@
-package datastructures;
+package algorithms;
 
 
 public class SortingAlgorithms {

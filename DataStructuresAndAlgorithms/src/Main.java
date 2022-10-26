@@ -1,11 +1,17 @@
-import datastructures.SortingAlgorithms;
+import datastructures.CustomLinkedList;
+
+import java.util.Iterator;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] array = new int[]{6, 4, -1, 11, 0, 9, 8, 1000000, -1121212};
-        SortingAlgorithms.heapSort(array);
-        SortingAlgorithms.printArray(array);
+        CustomLinkedList<Integer> list = new CustomLinkedList<>();
+        list.add(13);
+        list.add(14);
+        list.add(15);
+        list.add(0, 100);
+        list.printList();
+
     }
 
 
