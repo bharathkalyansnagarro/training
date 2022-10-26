@@ -1,16 +1,23 @@
 import datastructures.CustomLinkedList;
+import datastructures.CustomStack;
 
 import java.util.Iterator;
+import java.util.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
-        CustomLinkedList<Integer> list = new CustomLinkedList<>();
-        list.add(13);
-        list.add(14);
-        list.add(15);
-        list.add(0, 100);
-        list.printList();
+        CustomStack stack = new CustomStack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(-1212123);
+        stack.push(-4);
+        stack.push(124);
+
+        Iterator<Integer> it = stack.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
 
     }
 
