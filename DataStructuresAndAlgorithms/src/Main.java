@@ -1,17 +1,21 @@
 import datastructures.CustomHashMap;
+import datastructures.CustomQueue;
+import datastructures.CustomStack;
+
+import java.util.Iterator;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        CustomHashMap<Integer, Integer> map = new CustomHashMap<>();
-        map.put(12, 12);
-        map.put(13, 13);
-        map.put(14, 13);
-        map.print();
-        map.remove(15);
-        map.remove(14);
-        map.print();
+        CustomQueue<Integer> q = new CustomQueue<>();
+        q.enqueue(12);
+        q.enqueue(13);
+        q.enqueue(14);
+        q.enqueue(15);
+        q.enqueue(-15);
+        q.enqueue(19995);
+        q.print();
+        System.out.println(q.dequeue());
     }
 
 

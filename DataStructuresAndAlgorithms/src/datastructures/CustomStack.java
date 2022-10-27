@@ -14,7 +14,7 @@ import java.util.*;
 • Iterator !
 • Traverse/Print !
 *  */
-public class CustomStack<T extends Number> implements Iterable<T> {
+public class CustomStack<T extends Number> {
 
     private int size;
     private final int capacity;
@@ -96,24 +96,8 @@ public class CustomStack<T extends Number> implements Iterable<T> {
     }
 
 
-    @Override
     public Iterator<T> iterator() {
-
-        return new Iterator<T>() {
-            CustomNode<T> head = stack.getHead();
-
-            @Override
-            public boolean hasNext() {
-                return head != null;
-            }
-
-            @Override
-            public T next() {
-                T value = head.getValue();
-                head = head.next;
-                return value;
-            }
-        };
+        return stack.iterator();
     }
 }
 

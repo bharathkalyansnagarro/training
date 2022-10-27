@@ -30,7 +30,9 @@ public class CustomLinkedList<T extends Number> implements Iterable<T> {
         CustomNode<T> node = new CustomNode<T>(value);
         if (tail == null) {
             head = tail = node;
+            return;
         }
+        tail.next = node;
         tail = tail.next;
         size++;
     }
@@ -50,7 +52,6 @@ public class CustomLinkedList<T extends Number> implements Iterable<T> {
         if (position >= this.size) {
             tail.next = node;
             tail = tail.next;
-            size++;
         } else {
             CustomNode<T> temp = this.head;
             for (int i = 0; i < position - 1; i++) {
