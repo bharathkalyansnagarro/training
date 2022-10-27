@@ -1,9 +1,21 @@
 package datastructures;
 
-
+/*
+* Insert !
+• Delete !
+• Contains !
+• Get Value by key !
+• Size !
+• Iterator // TODO :
+• Traverse/Print !
+* */
 public class CustomHashMap<K, V> {
+
+    private int size = 0;
+
     private static final int INITIAL_SIZE = 1 << 4;
     private static final int MAXIMUM_CAPACITY = 1 << 30;
+
 
     static class Entry<K, V> {
         public K key;
@@ -18,13 +30,18 @@ public class CustomHashMap<K, V> {
 
     private final Entry[] hashTable;
 
-    CustomHashMap() {
+    public CustomHashMap() {
         hashTable = new Entry[INITIAL_SIZE];
     }
 
     CustomHashMap(int capacity) {
         int tableSize = tableSizeFor(capacity);
-        hashTable = new Entry<>[tableSize];
+        hashTable = new Entry[tableSize];
+    }
+
+
+    public int getSize() {
+        return size;
     }
 
     static int tableSizeFor(int n) {
@@ -37,6 +54,18 @@ public class CustomHashMap<K, V> {
         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
 
+    public V remove(K k) {
+        int hashCode = k.hashCode() % hashTable.length;
+        Entry node = hashTable[hashCode];
+        if (node == null) return null;
+        else {
+            V v = (V) node.value;
+            hashTable[hashCode] = null;
+            size--;
+            return v;
+        }
+    }
+
     public void put(K k, V v) {
         int hashCode = k.hashCode() % hashTable.length;
 
@@ -44,6 +73,7 @@ public class CustomHashMap<K, V> {
         if (node == null) {
             Entry<K, V> entry = new Entry<>(k, v);
             hashTable[hashCode] = entry;
+            size++;
         } else {
             Entry temp = node;
             while (temp.next != null) {
@@ -53,7 +83,7 @@ public class CustomHashMap<K, V> {
                 }
                 temp = temp.next;
             }
-
+            size++;
             temp.next = new Entry<>(k, v);
         }
     }
@@ -90,5 +120,16 @@ public class CustomHashMap<K, V> {
         return super.hashCode();
     }
 
+    public void print() {
+        for (Entry entry : hashTable) {
+            if (entry != null) {
+                Entry temp = entry;
+                while (temp != null) {
+                    System.out.println(entry.key + " : " + entry.value);
+                    temp = temp.next;
+                }
+            }
+        }
+    }
 
 }

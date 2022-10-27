@@ -1,18 +1,17 @@
-import datastructures.CustomStack;
-
-import java.util.Iterator;
+import datastructures.CustomHashMap;
 
 public class Main {
 
     public static void main(String[] args) {
-        CustomStack<Integer> stack = new CustomStack<>();
-        System.out.println(stack.isEmpty());
-        stack.push(2);
-        stack.push(-1212123);
-        stack.push(-4);
-        stack.push(124);
-        stack.print();
 
+        CustomHashMap<Integer, Integer> map = new CustomHashMap<>();
+        map.put(12, 12);
+        map.put(13, 13);
+        map.put(14, 13);
+        map.print();
+        map.remove(15);
+        map.remove(14);
+        map.print();
     }
 
 
