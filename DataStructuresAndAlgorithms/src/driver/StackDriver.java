@@ -5,6 +5,7 @@ import datastructures.CustomStack;
 
 import java.util.Scanner;
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class StackDriver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

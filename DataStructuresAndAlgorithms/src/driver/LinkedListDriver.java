@@ -5,6 +5,7 @@ import datastructures.CustomLinkedList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class LinkedListDriver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
