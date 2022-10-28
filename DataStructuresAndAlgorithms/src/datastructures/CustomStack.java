@@ -38,14 +38,14 @@ public class CustomStack<T extends Number> {
 
     public void push(T value) {
         if (size == capacity) throw new StackOverflowError();
-        stack.add(0,value);
+        stack.add(0, value);
         size++;
     }
 
-    public T pop() {
-        if (size == 0) throw new EmptyStackException();
+    public int pop() {
+        if (size == 0) return -1;
         size--;
-        return stack.delete(0);
+        return stack.delete(0).intValue();
     }
 
     public boolean isEmpty() {
