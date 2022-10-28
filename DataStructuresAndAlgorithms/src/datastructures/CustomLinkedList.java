@@ -16,7 +16,7 @@ import java.util.Iterator;
 * */
 public class CustomLinkedList<T extends Number> implements Iterable<T> {
 
-    private int size = 0;
+    private int size;
     private CustomNode<T> head;
     private CustomNode<T> tail;
 
@@ -27,9 +27,10 @@ public class CustomLinkedList<T extends Number> implements Iterable<T> {
     }
 
     public void add(T value) {
-        CustomNode<T> node = new CustomNode<T>(value);
-        if (tail == null) {
+        CustomNode<T> node = new CustomNode<>(value);
+        if (head == null) {
             head = tail = node;
+            size++;
             return;
         }
         tail.next = node;
@@ -49,12 +50,12 @@ public class CustomLinkedList<T extends Number> implements Iterable<T> {
             size++;
             return;
         }
-        if (position >= this.size) {
+        if (position > this.size) {
             tail.next = node;
             tail = tail.next;
         } else {
             CustomNode<T> temp = this.head;
-            for (int i = 0; i < position - 1; i++) {
+            for (int i = 0; i < position && temp != null; i++) {
                 temp = temp.next;
             }
             CustomNode<T> nextNode = temp.next;
@@ -77,10 +78,7 @@ public class CustomLinkedList<T extends Number> implements Iterable<T> {
     public T delete(int position) {
         if (head == null || position < 0) return null;
         if (position == 0) {
-            CustomNode<T> temp = head;
-            head = head.next;
-            size--;
-            return temp.getValue();
+            return delete();
         }
         CustomNode<T> temp = this.head;
 
@@ -104,8 +102,8 @@ public class CustomLinkedList<T extends Number> implements Iterable<T> {
         return slow;
     }
 
-    public CustomNode<T> reverse() {
-        return reverse(this.head, null);
+    public void reverse() {
+        this.head = reverse(this.head, null);
     }
 
     private CustomNode<T> reverse(CustomNode<T> head, CustomNode<T> prev) {
