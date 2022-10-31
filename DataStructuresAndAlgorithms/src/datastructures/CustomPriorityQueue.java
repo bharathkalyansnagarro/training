@@ -60,11 +60,11 @@ public class CustomPriorityQueue implements Iterable<Integer> {
         int largestIndex = index;
 
         int leftChildIndex = 2 * index + 1;
-        if (leftChildIndex < heap.size() && heap.get(leftChildIndex) > heap.get(largestIndex)) {
+        if (leftChildIndex < heap.size() && heap.get(leftChildIndex) < heap.get(largestIndex)) {
             largestIndex = leftChildIndex;
         }
         int rightChildIndex = 2 * index + 2;
-        if (rightChildIndex < heap.size() && heap.get(rightChildIndex) > heap.get(largestIndex)) {
+        if (rightChildIndex < heap.size() && heap.get(rightChildIndex) < heap.get(largestIndex)) {
             largestIndex = rightChildIndex;
         }
         if (largestIndex != index) {
