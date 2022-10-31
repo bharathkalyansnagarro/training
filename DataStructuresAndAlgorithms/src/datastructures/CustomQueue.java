@@ -68,7 +68,7 @@ public class CustomQueue<T extends Number> {
         return centerNode.getValue();
     }
 
-    public void reverse() {
+    public void reverseQueue() {
         queue.reverse();
     }
 
