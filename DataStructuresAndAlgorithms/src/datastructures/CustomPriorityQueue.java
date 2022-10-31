@@ -2,8 +2,20 @@ package datastructures;
 
 import java.util.*;
 
-public  class CustomPriorityQueue {
-    ArrayList< Integer> heap;
+/*
+* Enqueue !
+• Dequeue (Highest Priority) !
+• Peek (Highest Priority) !
+• Contains !
+• Size !
+• Reverse
+• Center !
+• Iterator !
+• Traverse/Print !
+* */
+
+public class CustomPriorityQueue implements Iterable<Integer> {
+    ArrayList<Integer> heap;
 
     public CustomPriorityQueue() {
         heap = new ArrayList<>();
@@ -44,7 +56,7 @@ public  class CustomPriorityQueue {
         return val;
     }
 
-    private void downHeapify (int index) {
+    private void downHeapify(int index) {
         int largestIndex = index;
 
         int leftChildIndex = 2 * index + 1;
@@ -72,5 +84,44 @@ public  class CustomPriorityQueue {
 
     public int size() {
         return heap.size();
+    }
+
+    public boolean contains(int value) {
+        for (int element : heap) {
+            if (element == value)
+                return true;
+        }
+        return false;
+    }
+
+    public int getCenter() {
+        if (size() == 0) return -1;
+        return heap.get(size() / 2);
+    }
+
+    public void printHeap() {
+        for (int element : heap) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        Iterator<Integer> iterator = new Iterator<Integer>() {
+
+            int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < size();
+            }
+
+            @Override
+            public Integer next() {
+                return heap.remove(currentIndex++);
+            }
+        };
+        return iterator;
     }
 }
