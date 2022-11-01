@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="DataStructuresAndAlgorithms:jar4">
-    <output-path>$PROJECT_DIR$/out/artifacts/DataStructuresAndAlgorithms_jar4</output-path>
-    <root id="archive" name="DataStructuresAndAlgorithms.jar">
-      <element id="module-output" name="DataStructuresAndAlgorithms" />
-    </root>
-  </artifact>
-</component>
