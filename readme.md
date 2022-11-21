@@ -13,4 +13,6 @@ Assignments> *Navigate through branches to see assignments.*> __Click on branch 
 | Data Structure and Algorithms | [Assignment 3](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-3-DataStructures-and-Algorithms) | Linked List, Stack, Queue, HashTable                    | |
 | SQL                           | [Assignment 4](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-4-SQL)                           | SQL Basics, Types, Joins, Triggers, Stored Procedures   | |
 | HTML/CSS/JS                   | [Assignment 5](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-5-HTMLCSSJS)                     | HTML, CSS, JavaScript                                   |https://student-enrollment-form-nagarro.netlify.app/ |
-| Maven                         | [Assignment 6](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-6-Maven)                     | Java Generics and Threading, Ant and Maven Build Tools, | |
+| Maven                         | [Assignment 6](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-6-Maven)                     | Java Generics and Mutli-Threading and Maven Build Tools | |
+| Hibernate                         | [Assignment 7](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-7-Hibernate)                     | ORM(JPA, Hibernate) | |
+
