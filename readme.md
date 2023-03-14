@@ -5,6 +5,7 @@
 ###### Emp Id: 31968051
 
 Assignments> _Navigate through branches to see assignments._> **Click on branch name to open it.**
+### Training Assignments
 
 | Assignment                        | Branch                                                                                                                   | Description                                             | Deployment                                           |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------| ---------------------------------------------------- |
@@ -20,3 +21,13 @@ Assignments> _Navigate through branches to see assignments._> **Click on branch 
 | Spring Boot                       | [Assignment 10 ](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-10-SpringBoot)                  | Spring Boot, Spring JPA, CRUD Operations                |                                                      |
 | Angular                           | [Assignment 11 ](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-11-Angular)                     | Angular, Node JS, Express JS, MongoDB                   |                                                      |
 | Exit Assignment (Product Catalog) | [Assignment 12 ](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Assignment-12-ExitTest)                    | Angular & Spring Boot                                   |                                                      |
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+### Bench Assignments
+
+| Assignment                        | Branch                                                                                                                   | Description                                             | Deployment                                           |
+|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------| ---------------------------------------------------- |
+| NODE JS                           | [Assignment 1 ](https://git.nagarro.com/GITG00641/Java/bharath-kalyan-s/tree/Bench-Assignment-1-NodeJS-ExpressJS)        | Node JS, Express JS, BackEnd                            |                                                      |
+|                   |                                                                                                                                         |                                     |                                                      |
+
