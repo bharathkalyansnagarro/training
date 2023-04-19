@@ -9,7 +9,7 @@ import DetailsPost from './DetailsPost'
 
 const Home = () => {
     return (
-        <div className="flex flex-col flex-grow m-4 p-4 border-x-4 border-y-2 rounded-lg border-yellow-300">
+        <div className="flex flex-col flex-grow m-4 p-4 border-2 rounded-lg border-yellow-400">
             <Routes>
                 <Route path="" element={<Post />}></Route>
                 <Route path="addPost" element={<AddPost />}></Route>

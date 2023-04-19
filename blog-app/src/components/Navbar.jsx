@@ -8,7 +8,7 @@ const Navbar = () => {
             <Link className="nav-item text-3xl justify-start" to={""}>Blog App</Link>
             <div className="ml-auto">
                 <Link className="nav-item m-2 font-semibold" to={""}>Home</Link>
-                <Link className="nav-item m-2 font-semibold" to={"/addPost"}>Add Post</Link>
+                <Link className="nav-item m-2 font-semibold" to={"/addPost"}>Add Blog</Link>
             </div>
         </div>
     )

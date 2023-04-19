@@ -4,7 +4,7 @@ const initialState = [
     {
         title: "Learning Next JS 🚀",
         description:
-            "Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
+            "Next JS is a popular React based Frontend Framework that helps us in building Godmode application.Next JS is a popular React based Frontend Framework that helps us in building Godmode application.Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
     },
     {
         title: "Learning React JS ⚛️",
