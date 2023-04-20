@@ -4,6 +4,7 @@ import Post from './Post'
 import AddPost from './AddPost'
 import EditPost from './EditPost'
 import DetailsPost from './DetailsPost'
+import ErrorPage from './ErrorPage'
 
 
 
@@ -15,6 +16,7 @@ const Home = () => {
                 <Route path="addPost" element={<AddPost />}></Route>
                 <Route path="editPost" element={<EditPost />}></Route>
                 <Route path="detailsPost" element={<DetailsPost />}></Route>
+                <Route path="/*" element={<ErrorPage />}></Route>
             </Routes>
         </div>
     )
