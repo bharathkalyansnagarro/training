@@ -73,9 +73,9 @@ const EditPost = () => {
 
           </div>
         </form>
-        {/* <p className="text-center text-gray-500 text-xs">
+        <p className="text-center text-gray-500 text-xs">
           &copy;2023 Bharath Kalyan S. All rights reserved.
-        </p> */}
+        </p>
       </div>
     </div>
   );

@@ -5,14 +5,14 @@ import { UserContext } from "./Home";
 const DetailsPost = () => {
   const data = useContext(UserContext);
   const location = useLocation();
-  const [id, setId] = useState("1")
-  const [title, setTitle] = useState("Demo Title");
-  const [description, setDescription] = useState("Demo Description");
+  const [id, setId] = useState("")
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
-    // const { id } = location.id;
+    const { id } = location.state;
     const filterResult = data.data.filter((item) => item.id === id);
-    // setId(id);
+    setId(id);
     setTitle(filterResult[0]?.title);
     setDescription(filterResult[0]?.description);
   }, []);
@@ -51,9 +51,9 @@ const DetailsPost = () => {
           </div>
 
         </form>
-        {/* <p className="text-center text-gray-500 text-xs">
+        <p className="text-center text-gray-500 text-xs">
           &copy;2023 Bharath Kalyan S. All rights reserved.
-        </p> */}
+        </p>
       </div>
     </div>
   );
