@@ -129,7 +129,7 @@ const Home = () => {
             <UserContext.Provider value={{ data, setData }}>
                 <Routes>
                     <Route path="" element={<Post />}></Route>
-                    <Route path="addPost" element={<AddPost />}></Route>
+                    <Route path="addPost" element={<AddPost func={add} />}></Route>
                     <Route path="editPost" element={<EditPost />}></Route>
                     <Route path="detailsPost" element={<DetailsPost />}></Route>
                     <Route path="/*" element={<ErrorPage />}></Route>
