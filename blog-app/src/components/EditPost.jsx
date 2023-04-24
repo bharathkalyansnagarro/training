@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { UserContext } from "./Home";
 
 const EditPost = () => {
+  const data = useContext(UserContext);
   const navigate = useNavigate();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-
+  const location = useLocation();
+  const { id } = location.state;
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -15,13 +18,22 @@ const EditPost = () => {
   };
 
   const handleSubmit = () => {
-    const data = {
-      title,
-      description,
+    const editData = {
+      id: location.state.id,
+      title: title,
+      description: description,
     };
-    console.log(data);
+    const tempArray = data.data.filter((item) => item.id !== id);
+    tempArray.push(editData);
+    data.setData(tempArray);
     navigate("/");
   };
+
+  useEffect(() => {
+    const filterItem = data.data.filter((item) => item.id === id);
+    setTitle(filterItem[0].title);
+    setDescription(filterItem[0].description);
+  }, []);
 
   return (
 

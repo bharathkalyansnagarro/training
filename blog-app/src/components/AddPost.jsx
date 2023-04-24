@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddPost = () => {
+const AddPost = (props) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
@@ -19,6 +19,7 @@ const AddPost = () => {
       title,
       description,
     };
+    props.func(data);
     console.log(data);
     navigate("/");
   };

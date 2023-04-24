@@ -1,27 +1,21 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { UserContext } from "./Home";
 
 const DetailsPost = () => {
-  const navigate = useNavigate();
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
+  const data = useContext(UserContext);
+  const location = useLocation();
+  const [id, setId] = useState("1")
+  const [title, setTitle] = useState("Demo Title");
+  const [description, setDescription] = useState("Demo Description");
 
-  const handleTitle = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleDescription = (e) => {
-    setDescription(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    const data = {
-      title,
-      description,
-    };
-    console.log(data);
-    navigate("/");
-  };
+  useEffect(() => {
+    // const { id } = location.id;
+    const filterResult = data.data.filter((item) => item.id === id);
+    // setId(id);
+    setTitle(filterResult[0]?.title);
+    setDescription(filterResult[0]?.description);
+  }, []);
 
   return (
 
@@ -34,8 +28,9 @@ const DetailsPost = () => {
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text" onChange={handleTitle} value={title}
+              type="text" value={title}
               id="title"
+              disabled
               placeholder="Blog Title"
               required />
           </div>
@@ -48,13 +43,13 @@ const DetailsPost = () => {
               id="description"
               cols="30"
               rows="8"
-              onChange={handleDescription}
+              disabled
               value={description}
               type="textarea"
               placeholder="Blog Description" required />
 
           </div>
-         
+
         </form>
         {/* <p className="text-center text-gray-500 text-xs">
           &copy;2023 Bharath Kalyan S. All rights reserved.
