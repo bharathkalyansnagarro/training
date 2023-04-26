@@ -28,7 +28,7 @@ const AddPost = (props) => {
 
     <div className="flex justify-center">
       <div className="w-full max-w-lg">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form onSubmit={handleSubmit}  className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
               Title
@@ -38,7 +38,7 @@ const AddPost = (props) => {
               type="text" onChange={handleTitle} value={title}
               id="title"
               placeholder="Blog Title"
-              required />
+              required={true} />
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
@@ -52,19 +52,19 @@ const AddPost = (props) => {
               onChange={handleDescription}
               value={description}
               type="textarea"
-              placeholder="Blog Description" required />
+              placeholder="Blog Description" required={true} />
 
           </div>
           <div className="flex justify-center">
-            <button onClick={handleSubmit} className="bg-yellow-500 hover:bg-yellow-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button type="submit"  className="bg-yellow-500 hover:bg-yellow-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" typeof="button">
               Add Blog
             </button>
 
           </div>
         </form>
-        {/* <p className="text-center text-gray-500 text-xs">
+        <p className="text-center text-gray-500 text-xs">
           &copy;2023 Bharath Kalyan S. All rights reserved.
-        </p> */}
+        </p>
       </div>
     </div>
   );
