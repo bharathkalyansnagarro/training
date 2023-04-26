@@ -14,7 +14,7 @@ const Home = () => {
             id: 1,
             title: "Learning Next JS 🚀",
             description:
-                "Next JS is a popular React based Frontend Framework that helps us in building Godmode application."
+                "Next.js is an open-source web development framework created by the private company Vercel providing React-based web applications with server-side rendering and static website generation.",
         },
         {
             id: 2,
@@ -27,93 +27,25 @@ const Home = () => {
             title: "Learning Node JS 🚀",
             description:
                 "Node JS is a popular Backend Framework that helps us in building Godmode application. ",
-        }, {
+        },
+        {
             id: 4,
-            title: "Learning Next JS 🚀",
+            title: "Learning Tailwind CSS 🚀",
             description:
-                "Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
+                "Tailwind CSS is an open source CSS framework. The main feature of this library is that, unlike other CSS frameworks like Bootstrap, it does not provide a series of predefined classes for elements such as buttons or tables.",
         },
         {
             id: 5,
-            title: "Learning React JS ⚛️",
+            title: "Learning Mongo DB 📅",
             description:
-                "React JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
+                "MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License which is deemed non-free by several distributions",
         },
         {
             id: 6,
-            title: "Learning Node JS 🚀",
+            title: "Learning GraphQL 📊",
             description:
-                "Node JS is a popular Backend Framework that helps us in building Godmode application. ",
-        }, {
-            id: 7,
-            title: "Learning Next JS 🚀",
-            description:
-                "Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
+                "GraphQL is an open-source data query and manipulation language for APIs and a query runtime engine. GraphQL enables declarative data fetching where a client can specify exactly what data it needs from an API",
         },
-        {
-            id: 8,
-            title: "Learning React JS ⚛️",
-            description:
-                "React JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 9,
-            title: "Learning Node JS 🚀",
-            description:
-                "Node JS is a popular Backend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 10,
-            title: "Learning Next JS 🚀",
-            description:
-                "Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 11,
-            title: "Learning React JS ⚛️",
-            description:
-                "React JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 12,
-            title: "Learning Node JS 🚀",
-            description:
-                "Node JS is a popular Backend Framework that helps us in building Godmode application. ",
-        }, {
-            id: 13,
-            title: "Learning Next JS 🚀",
-            description:
-                "Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 14,
-            title: "Learning React JS ⚛️",
-            description:
-                "React JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 15,
-            title: "Learning Node JS 🚀",
-            description:
-                "Node JS is a popular Backend Framework that helps us in building Godmode application. ",
-        }, {
-            id: 16,
-            title: "Learning Next JS 🚀",
-            description:
-                "Next JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 17,
-            title: "Learning React JS ⚛️",
-            description:
-                "React JS is a popular React based Frontend Framework that helps us in building Godmode application. ",
-        },
-        {
-            id: 18,
-            title: "Learning Node JS 🚀",
-            description:
-                "Node JS is a popular Backend Framework that helps us in building Godmode application. ",
-        }
     ]);
     const [counter, setCounter] = useState(100);
 
