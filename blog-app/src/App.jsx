@@ -6,13 +6,15 @@ import Home from "./components/Home"
 function App() {
 
   return (
-    <div className="App container bg-yellow-200 p-2">
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/*" element={<Home />}></Route>
-        </Routes>
-      </BrowserRouter>
+    <div className="min-h-screen">
+      <div className="bg-yellow-200 p-2">
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/*" element={<Home />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   )
 }
