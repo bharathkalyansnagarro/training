@@ -119,6 +119,7 @@ const Home = () => {
 
     const add = (childData) => {
         childData.id = counter;
+        setCounter(counter + 1);
         const tempArray = data;
         tempArray.push(childData);
         setData(tempArray);

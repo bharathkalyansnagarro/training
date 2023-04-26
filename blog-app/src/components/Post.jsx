@@ -11,7 +11,7 @@ const Post = () => {
 
     return (
         <div className="grid grid-cols-3">
-            {data.data.map((blog) => (
+            {data.data && data.data.map((blog) => (
                 <PostCard blog={blog} />
             ))}
         </div>
