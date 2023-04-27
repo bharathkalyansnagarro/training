@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "./Home";
 
-const EditPost = () => {
+const EditPost = ({ func }) => {
   const data = useContext(UserContext);
   const navigate = useNavigate();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
+  const [isEditable, setIsEditable] = useState(true);
   const location = useLocation();
   const { id } = location.state;
   const handleTitle = (e) => {
@@ -26,6 +27,7 @@ const EditPost = () => {
     const tempArray = data.data.filter((item) => item.id !== id);
     tempArray.push(editData);
     data.setData(tempArray);
+    func(editData.id, editData);
     navigate("/");
   };
 
@@ -33,6 +35,7 @@ const EditPost = () => {
     const filterItem = data.data.filter((item) => item.id === id);
     setTitle(filterItem[0].title);
     setDescription(filterItem[0].description);
+    setIsEditable(filterItem[0].isEditable);
   }, []);
 
   return (
@@ -67,9 +70,9 @@ const EditPost = () => {
 
           </div>
           <div className="flex justify-center">
-            <button onClick={handleSubmit} className="bg-yellow-500 hover:bg-yellow-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            {isEditable && <button onClick={handleSubmit} className="bg-yellow-500 hover:bg-yellow-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
               Update Blog
-            </button>
+            </button>}
 
           </div>
         </form>
